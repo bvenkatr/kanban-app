@@ -8,14 +8,20 @@ export default ({notes, onNoteClick = () => {}, onEdit = () => {}, onDelete = ()
             notes.map((i) => {
                 return <li key={i.id}>
                     <div style={{display: 'flex'}}>
-                        <Note onClick={onNoteClick.bind(null, i.id)}>
+                        <Note className="note" onClick={onNoteClick.bind(null, i.id)}>
                             <Editable
+                                className="editable"
                                 editing={i.editing}
                                 value={i.task}
                                 onEdit={onEdit.bind(null, i.id)}
                             />
                         </Note>
-                        <button onClick={onDelete.bind(null, i.id)}>x</button>
+                        <button
+                            className="delete"
+                            onClick={onDelete.bind(null, i.id)}
+                        >
+                            x
+                        </button>
                     </div>
                 </li>
             })
